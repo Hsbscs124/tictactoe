@@ -1,17 +1,52 @@
 package com.example.tictac;
 
+import java.util.Scanner;
+
 public class tictactoe {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         char[][] board = {
                 {' ', ' ', ' '},
                 {' ', ' ', ' '},
                 {' ', ' ', ' '}
         };
+        while (true) {
+            printBoard(board);
+
+            System.out.print("Wähle ein Feld (1-9) ");
+            int n = sc.nextInt();
+
+            if (n == 0) {
+                System.out.println("Spiel beendet.");
+                break;
+            }
+
+
+            if (n < 1 || n > 9) {
+                System.out.println(" Zahl von 1 bis 9 eingeben!");
+                continue;
+            }
+
+
+            int row = (n - 1) / 3;
+            int col = (n - 1) % 3;
+
+
+            if (board[row][col] != ' ') {
+                System.out.println("womp womp");
+                continue;
+            }
+
+            
+            board[row][col] = 'X';
+
+
+        }
 
 
 
-        printBoard(board);
+
     }
 
     static void printBoard(char[][] board) {
